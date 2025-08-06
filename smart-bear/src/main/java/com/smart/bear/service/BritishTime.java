@@ -16,6 +16,9 @@ public class BritishTime implements ICountryTime {
          if (TimeUtils.isNoon(input)) {
             return "noon";
         }
+        if(TimeUtils.isMidNight(input)) {
+            return "midnight";
+        }        
         LocalTime time = DateUtis.getLocalTime(input);
         MinutesService minutesService = new MinutesService();
         MinutesPojo minutesPojo = minutesService.getMinutes(time.getMinute());
