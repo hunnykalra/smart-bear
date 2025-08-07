@@ -7,8 +7,11 @@ public class DateUtis {
 
     public static LocalTime getLocalTime(String input){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H:mm");
-        LocalTime time = LocalTime.parse(input, formatter);
-        return time;
+        try {
+            return LocalTime.parse(input, formatter);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Invalid time format: " + input, e);
+        }
     }
 
 
